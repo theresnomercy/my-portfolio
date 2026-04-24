@@ -5,46 +5,22 @@
   <section class="section">
     <div class="container">
       <div class="section-header">
-        <h1 class="section-title">Courses</h1>
+        <h1 class="section-title">Courses &amp; Certificates</h1>
         <p class="section-subtitle">
           A timeline of structured learning — combining university work with intentional,
           self-directed courses.
         </p>
       </div>
       <div class="timeline">
-
-        <div class="timeline-item">
-          <div class="timeline-year">2026</div>
-          <div class="timeline-card">
-            <h2 class="timeline-title">Backend with Node.js &amp; Express</h2>
-            <p class="timeline-body">
-              Built REST APIs, practiced routing, middleware, and deployment-ready folder
-              structures using Node.js and Express.
-            </p>
+        <% courses.forEach(function(item) { %>
+          <div class="timeline-item">
+            <div class="timeline-year"><%= item.dateLabel %></div>
+            <div class="timeline-card">
+              <h2 class="timeline-title"><%= item.title %></h2>
+              <p class="timeline-body"><%= item.type %> — <%= item.provider %></p>
+            </div>
           </div>
-        </div>
-        
-        <div class="timeline-item">
-          <div class="timeline-year">2026</div>
-          <div class="timeline-card">
-            <h2 class="timeline-title">Software Engineering Degree</h2>
-            <p class="timeline-body">
-              Core subjects in algorithms, data structures, software architecture, and databases,
-              building a strong foundation for backend and web development.
-            </p>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-year">2024</div>
-          <div class="timeline-card">
-            <h2 class="timeline-title">Web Development Fundamentals</h2>
-            <p class="timeline-body">
-              HTML, CSS, and JavaScript fundamentals with an emphasis on layout, accessibility, and
-              responsive design patterns.
-            </p>
-          </div>
-        </div>
+        <% }) %>
       </div>
     </div>
   </section>

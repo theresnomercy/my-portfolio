@@ -5,61 +5,87 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Basic in-memory data to drive views
+const courses = [
+  {
+    type: 'Certificate',
+    dateLabel: 'Jan 2026',
+    title: 'Excel Essential Training (Microsoft 365)',
+    provider: 'LinkedIn Learning',
+  },
+  {
+    type: 'Course',
+    dateLabel: '2026',
+    title: 'JavaScript',
+    provider: 'Tuwaiq Academy',
+  },
+  {
+    type: 'Course',
+    dateLabel: '2026',
+    title: 'Node.js',
+    provider: 'Tuwaiq Academy',
+  },
+  {
+    type: 'Course',
+    dateLabel: '2026',
+    title: 'Git & GitHub Version Control Training Series',
+    provider: 'Tuwaiq Academy',
+  },
+  {
+    type: 'Course',
+    dateLabel: '2026',
+    title: 'YAML Configuration Training',
+    provider: 'Tuwaiq Academy',
+  },
+  {
+    type: 'Course',
+    dateLabel: '2026',
+    title: 'CI/CD Fundamentals Training',
+    provider: 'Tuwaiq Academy',
+  },
+  {
+    type: 'Certificate',
+    dateLabel: '2026',
+    title: 'PowerShell Step-by-Step',
+    provider: 'Udemy',
+  },
+];
+
 const projects = [
   {
-    slug: 'dev-taskboard-api',
-    name: 'Dev Taskboard API',
-    shortDescription: 'RESTful task management backend with JWT-ready architecture and modular routing.',
+    slug: 'portfolio-platform',
+    name: 'Portfolio Platform',
+    shortDescription: 'Multi-page Express + EJS portfolio platform engineered like a product.',
     description:
-      'A backend-focused project that exposes a clean, well-documented REST API for managing projects, tasks, and labels. Built to emphasize structure, maintainability, and real-world patterns like controllers and middleware.',
+      'A portfolio platform built with an app-like structure: shared partials, clean routing, and a consistent UI system across pages.',
     problem:
-      'Many student projects mix business logic directly into route handlers, making them hard to maintain or scale.',
+      'Many portfolios are static one-offs that don’t demonstrate backend routing, maintainable structure, or reusable UI composition.',
     solution:
-      'Designed a layered architecture separating routing, controllers, and utilities, making the codebase easier to extend and reason about.',
-    technologies: ['Node.js', 'Express', 'REST', 'Postman'],
-    challenges:
-      'Balancing simplicity with production-like patterns without over-engineering, while keeping the API surface clean and intuitive.',
-    outcome:
-      'Produced a backend service that could be dropped into a larger system, showcasing readiness for real-world backend work.',
-    github: 'https://github.com/',
-    demo: null,
-  },
-  {
-    slug: 'portfolio-platform-v1',
-    name: 'Portfolio Platform v1',
-    shortDescription:
-      'Multi-page Express + EJS portfolio platform engineered like a production web product.',
-    description:
-      'This very site, built to communicate technical maturity through structure, routing, and interaction design.',
-    problem:
-      'Typical portfolios feel like one-off static pages and fail to showcase understanding of backend routing or modular frontends.',
-    solution:
-      'Implemented a server-rendered, multi-page architecture with shared partials, layout discipline, and a clear routing strategy.',
+      'Built a multi-page Express + EJS application with shared layouts, predictable routes, and a cohesive design system.',
     technologies: ['Node.js', 'Express', 'EJS', 'CSS3'],
     challenges:
-      'Balancing visual flair and animations with performance and readability on a dark, high-contrast interface.',
+      'Balancing visual polish with performance and readability while keeping the codebase modular and easy to iterate.',
     outcome:
-      'A portfolio that feels like a real product, reinforcing that the creator understands scalable web foundations.',
-    github: 'https://github.com/',
+      'A portfolio that behaves like a real web product and clearly communicates engineering fundamentals.',
+    github: 'https://github.com/theresnomercy/my-portfolio',
     demo: null,
   },
   {
-    slug: 'php-blog-engine',
-    name: 'PHP Blog Engine',
+    slug: 'ticket-support-system',
+    name: 'Ticket Support System',
     shortDescription:
-      'Lightweight blog engine demonstrating routing, templating, and content structuring using PHP.',
+      'Backend-driven support request manager with CRUD, structured routing, and lifecycle handling.',
     description:
-      'A small but structured blog engine using PHP to reinforce backend fundamentals and templating beyond JavaScript.',
+      'A functional backend-driven system for managing support requests, focusing on CRUD operations, structured routing, and request lifecycle.',
     problem:
-      'Static pages quickly become unmanageable as content grows, especially without reusable templates and routing.',
+      'Support requests become difficult to track and maintain without clear routing, predictable CRUD flows, and lifecycle states.',
     solution:
-      'Introduced layout templates, partials, and clean URL routing so new posts and sections can be added with minimal friction.',
-    technologies: ['PHP', 'HTML5', 'CSS3'],
+      'Implemented structured routes and handlers that support creating, reading, updating, and closing tickets with a clean request lifecycle.',
+    technologies: ['Node.js', 'Express', 'REST'],
     challenges:
-      'Keeping the codebase approachable for future iteration while not sacrificing best practices around separation of concerns.',
+      'Designing a clear lifecycle model while keeping routes consistent and responses easy to reason about.',
     outcome:
-      'A solid demonstration that concepts like layout composition and routing are transferable across stacks.',
-    github: 'https://github.com/',
+      'A maintainable ticket workflow that demonstrates backend fundamentals: CRUD, routing discipline, and lifecycle state transitions.',
+    github: 'https://github.com/theresnomercy/ticket-support-system',
     demo: null,
   },
 ];
@@ -76,6 +102,7 @@ app.use((req, res, next) => {
   res.locals.currentPath = req.path;
   res.locals.year = new Date().getFullYear();
   res.locals.projects = projects;
+  res.locals.courses = courses;
   next();
 });
 

@@ -284,8 +284,7 @@ img {
 }
 
 .icon-github::before,
-.icon-linkedin::before,
-.icon-instagram::before {
+.icon-linkedin::before {
   content: '';
   position: absolute;
   inset: 0.1rem;
@@ -310,17 +309,6 @@ img {
   inset: 0.23rem;
   border-radius: 50%;
   border-top: 1.5px solid currentColor;
-}
-
-.icon-instagram::after {
-  content: '';
-  position: absolute;
-  right: 0.18rem;
-  top: 0.18rem;
-  width: 0.18rem;
-  height: 0.18rem;
-  border-radius: 999px;
-  border: 1.5px solid currentColor;
 }
 
 .nav-toggle {
