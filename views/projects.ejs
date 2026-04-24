@@ -1,0 +1,42 @@
+<%- include('partials/head') %>
+<%- include('partials/navbar', { page }) %>
+
+<main class="page-root">
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h1 class="section-title">Projects</h1>
+        <p class="section-subtitle">
+          Not just a gallery — each project is structured like a case study, focused on problems,
+          decisions, and outcomes.
+        </p>
+      </div>
+
+      <div class="projects-grid">
+        <% projects.forEach(function(project) { %>
+        <article class="project-card">
+          <header class="project-card-header">
+            <h2 class="project-card-title"><%= project.name %></h2>
+            <p class="project-card-description"><%= project.shortDescription %></p>
+          </header>
+          <div class="project-card-body">
+            <div class="project-tags">
+              <% project.technologies.forEach(function(tech) { %>
+              <span class="tag"><%= tech %></span>
+              <% }) %>
+            </div>
+          </div>
+          <footer class="project-card-footer">
+            <a href="/projects/<%= project.slug %>" class="project-link">
+              View Case Study <span class="project-link-arrow">→</span>
+            </a>
+          </footer>
+        </article>
+        <% }) %>
+      </div>
+    </div>
+  </section>
+</main>
+
+<%- include('partials/footer') %>
+

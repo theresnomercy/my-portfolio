@@ -1,0 +1,89 @@
+<%- include('partials/head') %>
+<%- include('partials/navbar', { page }) %>
+
+<main class="page-root">
+  <section class="section">
+    <div class="container project-detail">
+      <header class="section-header">
+        <p class="section-kicker">Case Study</p>
+        <h1 class="section-title"><%= project.name %></h1>
+        <p class="section-subtitle"><%= project.description %></p>
+      </header>
+
+      <div class="project-detail-grid">
+        <div class="project-detail-main">
+          <section class="project-section">
+            <h2 class="project-section-title">Problem</h2>
+            <p class="project-section-body"><%= project.problem %></p>
+          </section>
+
+          <section class="project-section">
+            <h2 class="project-section-title">Solution</h2>
+            <p class="project-section-body"><%= project.solution %></p>
+          </section>
+
+          <section class="project-section">
+            <h2 class="project-section-title">Challenges</h2>
+            <p class="project-section-body"><%= project.challenges %></p>
+          </section>
+
+          <section class="project-section">
+            <h2 class="project-section-title">Outcome</h2>
+            <p class="project-section-body"><%= project.outcome %></p>
+          </section>
+        </div>
+
+        <aside class="project-detail-aside">
+          <section class="project-meta-card">
+            <h3 class="project-meta-title">Technologies Used</h3>
+            <div class="project-tags">
+              <% project.technologies.forEach(function(tech) { %>
+              <span class="tag"><%= tech %></span>
+              <% }) %>
+            </div>
+          </section>
+
+          <section class="project-meta-card">
+            <h3 class="project-meta-title">Links</h3>
+            <ul class="project-links">
+              <% if (project.github) { %>
+              <li>
+                <a
+                  href="<%= project.github %>"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="project-link-extern"
+                  >View on GitHub</a
+                >
+              </li>
+              <% } %>
+
+              <% if (project.demo) { %>
+              <li>
+                <a
+                  href="<%= project.demo %>"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="project-link-extern"
+                  >Live Demo</a
+                >
+              </li>
+              <% } %>
+            </ul>
+          </section>
+
+          <section class="project-meta-card">
+            <h3 class="project-meta-title">Notes</h3>
+            <p class="project-meta-body">
+              This case study is written to highlight the way I think about architecture, trade-offs
+              and scaling beyond &ldquo;just getting it working.&rdquo;
+            </p>
+          </section>
+        </aside>
+      </div>
+    </div>
+  </section>
+</main>
+
+<%- include('partials/footer') %>
+

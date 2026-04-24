@@ -1,0 +1,59 @@
+<header class="navbar-backdrop">
+  <nav class="navbar">
+    <div class="nav-left">
+      <a href="/" class="logo">
+        <span class="logo-text">Sami AL-Shammari</span>
+      </a>
+    </div>
+    <button class="nav-toggle" aria-label="Toggle navigation">
+      <span class="nav-toggle-line"></span>
+      <span class="nav-toggle-line"></span>
+    </button>
+    <div class="nav-center" id="primary-nav">
+      <a href="/" class="nav-link <%= page === 'home' ? 'nav-link-active' : '' %>">Home</a>
+      <a href="/projects" class="nav-link <%= page === 'projects' ? 'nav-link-active' : '' %>"
+        >Projects</a
+      >
+      <a href="/skills" class="nav-link <%= page === 'skills' ? 'nav-link-active' : '' %>">Skills</a>
+      <a href="/courses" class="nav-link <%= page === 'courses' ? 'nav-link-active' : '' %>"
+        >Courses</a
+      >
+      <a href="/about" class="nav-link <%= page === 'about' ? 'nav-link-active' : '' %>">About</a>
+      <a href="/contact" class="nav-link <%= page === 'contact' ? 'nav-link-active' : '' %>"
+        >Contact</a
+      >
+    </div>
+    <div class="nav-right">
+      <a href="/resume" class="btn btn-primary" download>Resume</a>
+      <div class="nav-social">
+        <a
+          href="https://github.com/"
+          class="icon-button"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="GitHub"
+        >
+          <span class="icon icon-github"></span>
+        </a>
+        <a
+          href="https://www.linkedin.com/"
+          class="icon-button"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn"
+        >
+          <span class="icon icon-linkedin"></span>
+        </a>
+        <a
+          href="https://www.instagram.com/"
+          class="icon-button"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram"
+        >
+          <span class="icon icon-instagram"></span>
+        </a>
+      </div>
+    </div>
+  </nav>
+</header>
